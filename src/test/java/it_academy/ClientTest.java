@@ -15,7 +15,7 @@ class ClientTest {
 
 	@Test
 	void createGroupOfStudents() throws NoSuchFieldException, IllegalAccessException {
-		List<Student> list = Client.createGroupOfStudents(3);
+		List<Student> list = Client.createGroupOfStudents(3, 3);
 
 		assertEquals((3 * 3), list.size());
 

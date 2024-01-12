@@ -3,10 +3,8 @@ package it_academy;
 import it_academy.context.Student;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class Client {
 
@@ -17,7 +15,8 @@ public class Client {
 
 	public static void main(String[] args) {
 
-		group = createGroupOfStudents(ConstantContainer.COUNT_OF_STUDENTS_OF_EACH_TYPE);
+		group = createGroupOfStudents(ConstantContainer.COUNT_OF_TYPES_OF_STUDENTS,
+				ConstantContainer.COUNT_OF_STUDENTS_OF_EACH_TYPE);
 
 		printGroup(group, OK_MESSAGE);
 /*
@@ -28,19 +27,22 @@ public class Client {
 		*/
 	}
 
-	public static List<Student> createGroupOfStudents(int countOfSTudentEachType) {
+	public static List<Student> createGroupOfStudents(int types, int countOfSTudentEachType) {
 		List<Student> list = new ArrayList<>();
-		for (int i = 0; i < countOfSTudentEachType; i++) {
-			list.addAll(Arrays.stream(Types.values())
-					.map(typ -> new Student(typ, getRanTalent(random)))
-					.collect(Collectors.toList()));
+		for (int i = 0; i < types; i++) {
+
+			for (int j = 0; j < countOfSTudentEachType; j++) {
+				list.add(new Student(ConstantContainer.Types.values()[i], getRanTalent(random)));
+			}
 		}
 		return list;
 	}
 
 	private static void printGroup(List<Student> group, String message) {
 		System.out.println(message);
-		group.forEach(System.out::println);
+		for (Student st : group) {
+			System.out.println(st.toString());
+		}
 		System.out.println();
 	}
 

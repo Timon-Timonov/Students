@@ -1,6 +1,6 @@
 package it_academy.context;
 
-import it_academy.Types;
+import it_academy.ConstantContainer;
 import it_academy.strategy.cocreteStrtegies.FirstTypeStrategy;
 import it_academy.strategy.cocreteStrtegies.SecondTypeStrategy;
 import it_academy.strategy.cocreteStrtegies.ThirdTypeStrategy;
@@ -9,12 +9,12 @@ import it_academy.strategy.TimeCalculator;
 public class Student {
 
 	private TimeCalculator calc;
-	private Types type;
+	private ConstantContainer.Types type;
 	private int totalTime;
 	private int timeToEachKindOfProcess;
 	private final double talent;
 
-	public Student(Types type, double talent) {
+	public Student(ConstantContainer.Types type, double talent) {
 		this.type = type;
 		this.talent = talent;
 		checkType();
@@ -32,7 +32,7 @@ public class Student {
 		return talent;
 	}
 
-	public void setType(Types type) {
+	public void setType(ConstantContainer.Types type) {
 		this.type = type;
 		checkType();
 	}
