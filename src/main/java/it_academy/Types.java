@@ -2,6 +2,7 @@ package it_academy;
 
 import java.util.Arrays;
 
+
 public enum Types {
 
 	ONE(1, new String[]{"potok", "razbor", "practic"}),
@@ -30,3 +31,4 @@ public enum Types {
 				"; typesOfTraining: " + Arrays.toString(typesOfTraining);
 	}
 }
+

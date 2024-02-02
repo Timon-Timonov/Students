@@ -1,10 +1,10 @@
 package it_academy.context;
 
 import it_academy.Types;
+import it_academy.strategy.TimeCalculator;
 import it_academy.strategy.cocreteStrtegies.FirstTypeStrategy;
 import it_academy.strategy.cocreteStrtegies.SecondTypeStrategy;
 import it_academy.strategy.cocreteStrtegies.ThirdTypeStrategy;
-import it_academy.strategy.TimeCalculator;
 
 public class Student {
 

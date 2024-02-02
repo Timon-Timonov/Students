@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Client {
 
 	public static final String OK_MESSAGE = "List of all created group:";
-	public static final String CHANGE_MESSAGE = "List of group after any changes:";
+	//public static final String CHANGE_MESSAGE = "List of group after any changes:";
 	private static Random random = new Random();
 	private static List<Student> group;
 
@@ -30,11 +30,12 @@ public class Client {
 
 	public static List<Student> createGroupOfStudents(int countOfSTudentEachType) {
 		List<Student> list = new ArrayList<>();
-		for (int i = 0; i < countOfSTudentEachType; i++) {
-			list.addAll(Arrays.stream(Types.values())
-					.map(typ -> new Student(typ, getRanTalent(random)))
-					.collect(Collectors.toList()));
-		}
+		Arrays.stream(Types.values())
+				.forEach(type -> IntStream.range(0, countOfSTudentEachType)
+						.forEach(count -> list.add(new Student(type, getRanTalent(random)))));
+		/*IntStream.range(0, countOfSTudentEachType)
+				.forEach(i -> Arrays.stream(Types.values())
+						.forEach(type -> list.add(new Student(type, getRanTalent(random)))));*/
 		return list;
 	}
 
